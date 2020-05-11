@@ -1,0 +1,67 @@
+#N canvas 675 125 823 545 12;
+#X obj 11 21 cnv 19 500 50 empty empty ADSR-ENVELOPE 10 24 0 36 -1
+-262144 0;
+#X obj 11 222 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 10 272 cnv 19 450 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 10 323 cnv 19 450 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 10 374 cnv 19 450 140 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 20 242 5 0 0 1 Frequency-(Hz) - -;
+#X obj 20 384 *~ 0.5;
+#X obj 20 408 clip~ -1 1;
+#X obj 20 432 hip~ 3;
+#X obj 20 456 *~ 0.5;
+#X obj 20 485 dac~ 1 2;
+#X obj 11 82 cnv 19 450 140 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X obj 20 95 notein;
+#X floatatom 20 169 5 0 0 1 MIDI - -;
+#X obj 20 192 mtof;
+#X obj 20 347 *~;
+#X obj 20 285 osc~;
+#X obj 20 129 poly 1 1;
+#X obj 171 123 cnv 15 290 250 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X floatatom 190 152 5 0 0 1 Velocity - -;
+#X obj 190 175 > 0;
+#X obj 190 222 sel 1 0;
+#X msg 190 280 1 10 \, 0.5 1000 10;
+#X obj 190 324 vline~;
+#X obj 190 256 bng 19 250 50 0 empty empty Att/Dec/Sus 22 10 0 12 -262144
+-1 -1;
+#X floatatom 190 199 5 0 0 0 - - -;
+#X obj 340 256 bng 19 250 50 0 empty empty Release 22 10 0 12 -262144
+-1 -1;
+#X msg 340 280 0 200;
+#X text 477 208 2) Go to Sustain in Decay(ms) after Attack(ms);
+#X text 477 188 1) Go to 1 in Attack(ms);
+#X text 467 168 NOTE-ON;
+#X text 467 238 NOTE-OFF;
+#X text 477 258 1) Go to 0 in Release(ms);
+#X connect 5 0 16 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 12 0 17 0;
+#X connect 12 1 17 1;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 0;
+#X connect 17 1 13 0;
+#X connect 17 2 19 0;
+#X connect 19 0 20 0;
+#X connect 20 0 25 0;
+#X connect 21 0 24 0;
+#X connect 21 1 26 0;
+#X connect 22 0 23 0;
+#X connect 23 0 15 1;
+#X connect 24 0 22 0;
+#X connect 25 0 21 0;
+#X connect 26 0 27 0;
+#X connect 27 0 23 0;
