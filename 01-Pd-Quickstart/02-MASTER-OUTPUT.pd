@@ -1,0 +1,38 @@
+#N canvas 675 125 564 459 12;
+#X obj 11 21 cnv 19 500 50 empty empty MASTER-OUTPUT 10 24 0 36 -1
+-262144 0;
+#X obj 11 122 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 10 172 cnv 19 450 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 10 223 cnv 19 450 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 10 274 cnv 19 450 140 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 30 142 5 0 0 2 Frequency-(Hz) - -;
+#X text 100 185 <= Cosine Oscillator;
+#X obj 30 185 osc~ 440;
+#X obj 30 284 *~ 0.5;
+#X obj 30 308 clip~ -1 1;
+#X obj 30 332 hip~ 3;
+#X obj 30 356 *~ 0.5;
+#X obj 30 385 dac~ 1 2;
+#X text 80 332 <= Highpass filter at 3 Hz to remove DC;
+#X text 80 356 <= -6 dB again (-12 dB Total);
+#X text 110 308 <= Restrict signal between -1 to 1 (Distortion);
+#X obj 30 234 *~ 1;
+#X obj 277 192 hsl 101 19 0 1 0 0 empty empty VOLUME-CONTROL -2 -8
+0 12 -262144 -1 -1 0 1;
+#X floatatom 274 216 5 0 0 0 - - -;
+#X text 28 81 // Distort and reduce amplitude (Headroom) before damaging
+your headphones \, speakers or ears.;
+#X text 80 284 <= Reduce ampltitude by -6 dB (CONNECT HERE);
+#X connect 5 0 7 0;
+#X connect 7 0 16 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 12 1;
+#X connect 17 0 18 0;
+#X connect 18 0 16 1;

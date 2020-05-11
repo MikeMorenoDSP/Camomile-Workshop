@@ -1,0 +1,37 @@
+#N canvas 624 81 892 794 12;
+#X obj 11 21 cnv 19 500 50 empty empty empty 10 24 0 36 -1 -262144
+0;
+#X obj 521 21 cnv 19 200 150 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X obj 541 41 cnv 19 200 150 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 561 61 cnv 19 200 150 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 581 81 cnv 19 200 150 empty empty empty 5 12 0 14 -204786 -1
+0;
+#X obj 601 101 cnv 19 200 150 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 621 121 cnv 19 200 150 empty empty empty 5 12 0 14 -203904 -1
+0;
+#X obj 641 141 cnv 19 200 100 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X obj 161 277 notein;
+#X floatatom 161 311 5 0 0 0 MIDI - -;
+#X floatatom 221 311 5 0 0 1 Velocity - -;
+#X obj 161 334 mtof;
+#X floatatom 161 358 5 0 0 0 Frequency - -;
+#X obj 161 381 osc~;
+#X obj 203 420 *~;
+#X text 11 381 cosine oscillator =>;
+#X obj 221 334 > 0;
+#X floatatom 221 358 5 0 0 0 - - -;
+#X text 233 420 <= Amplitude Control;
+#X connect 8 0 9 0;
+#X connect 8 1 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 16 0;
+#X connect 11 0 12 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 16 0 17 0;
+#X connect 17 0 14 1;

@@ -1,0 +1,48 @@
+#N canvas 675 125 534 555 12;
+#X obj 11 21 cnv 19 500 50 empty empty NOTE-IN 10 24 0 36 -1 -262144
+0;
+#X obj 11 202 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 10 252 cnv 19 450 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 10 303 cnv 19 450 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 10 354 cnv 19 450 140 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 30 222 5 0 0 1 Frequency-(Hz) - -;
+#X obj 30 364 *~ 0.5;
+#X obj 30 388 clip~ -1 1;
+#X obj 30 412 hip~ 3;
+#X obj 30 436 *~ 0.5;
+#X obj 30 465 dac~ 1 2;
+#X obj 11 82 cnv 19 450 120 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X obj 30 105 notein;
+#X floatatom 30 149 5 0 0 1 MIDI - -;
+#X obj 30 172 mtof;
+#X obj 30 327 *~;
+#X obj 30 265 osc~;
+#X text 80 105 <= MIDI notes Input (MIDI/Velocity/Channel);
+#X text 30 495 // Notice the clicks and pops?;
+#X text 30 515 // Notes get chocked with this method.;
+#X obj 231 203 cnv 15 230 100 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X floatatom 250 212 5 0 0 1 Velocity - -;
+#X obj 250 235 > 0;
+#X text 280 235 <= Greater than 0?;
+#X floatatom 250 272 5 0 0 0 - - -;
+#X text 300 262 0 = MUTE;
+#X text 300 282 1 = FULL VOLUME;
+#X connect 5 0 16 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 0;
+#X connect 21 0 22 0;
+#X connect 22 0 24 0;
+#X connect 24 0 15 1;

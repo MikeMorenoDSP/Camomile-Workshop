@@ -1,0 +1,38 @@
+#N canvas 624 81 704 500 12;
+#X obj 11 21 cnv 19 500 50 empty empty ENVELOPE 10 24 0 36 -1 -262144
+0;
+#X obj 170 296 cnv 19 200 150 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X obj 14 91 cnv 19 200 150 empty empty empty 5 12 0 14 -204786 -1
+0;
+#X obj 191 161 cnv 19 200 150 empty empty empty 5 12 0 14 -203904 -1
+0;
+#X obj 227 125 cnv 19 200 100 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X floatatom 151 121 5 0 0 0 MIDI - -;
+#X obj 151 144 mtof;
+#X floatatom 151 178 5 0 0 0 Frequency - -;
+#X obj 151 201 osc~;
+#X obj 193 240 *~;
+#X text 1 201 cosine oscillator =>;
+#X text 223 240 <= Amplitude Control;
+#X obj 251 143 bng 19 250 50 0 empty empty TRIGGER-ENVELOPE 0 -8 0
+12 -262144 -1 -1;
+#X msg 251 167 1 1000 \, 0 1000 2000;
+#X obj 251 191 vline~;
+#X text 411 167 1) Go to 1 in 1000 ms;
+#X text 411 187 2) Go to 0 in 1000 ms after 2000 ms;
+#X obj 193 304 *~ 0.25;
+#X obj 193 338 dac~ 1 2;
+#X text 471 237 1s Attack;
+#X text 471 257 1s Hold;
+#X text 471 277 1s Release;
+#X text 471 217 Result;
+#X connect 5 0 6 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 17 0;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 17 0 18 0;
+#X connect 17 0 18 1;

@@ -1,0 +1,35 @@
+#N canvas 675 125 621 408 12;
+#X obj 11 21 cnv 19 500 50 empty empty TEST-TONE 10 24 0 36 -1 -262144
+0;
+#X obj 11 122 cnv 19 300 100 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 10 222 cnv 19 300 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 10 273 cnv 19 300 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 10 324 cnv 19 300 50 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 30 142 5 0 0 2 Frequency-(Hz) - -;
+#X obj 30 344 dac~ 1 2;
+#X text 100 344 <= Master Output (L R);
+#X text 100 245 <= Cosine Oscillator;
+#X obj 30 245 osc~ 440;
+#X text 90 294 <= Amplitude (RMS);
+#X obj 30 294 *~ 0.5;
+#X msg 354 109 \; pd dsp 1;
+#X msg 434 109 \; pd dsp 0;
+#X text 354 83 // Click here to turn DSP ON or OFF;
+#X text 354 153 // Or do it in the console;
+#X obj 321 177 cnv 15 200 100 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X text 329 181 // Messages;
+#X msg 369 211 0.5;
+#X text 369 251 0.5 RMS =~ -6 dB;
+#X msg 329 211 0;
+#X floatatom 140 147 5 0 0 2 Multiply - -;
+#X obj 30 165 *;
+#X floatatom 30 189 5 0 0 0 - - -;
+#X text 24 103 // Objects with Tilde "~" = Audio Objects;
+#X connect 5 0 22 0;
+#X connect 21 0 22 1;
+#X connect 22 0 23 0;

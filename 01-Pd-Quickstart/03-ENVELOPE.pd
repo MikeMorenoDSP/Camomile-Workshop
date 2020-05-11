@@ -1,0 +1,45 @@
+#N canvas 675 125 520 525 12;
+#X obj 11 21 cnv 19 500 50 empty empty ENVELOPE 10 24 0 36 -1 -262144
+0;
+#X obj 11 122 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 10 172 cnv 19 450 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 10 223 cnv 19 450 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 10 274 cnv 19 450 140 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 30 142 5 0 0 2 Frequency-(Hz) - -;
+#X obj 30 185 osc~ 440;
+#X obj 30 284 *~ 0.5;
+#X obj 30 308 clip~ -1 1;
+#X obj 30 332 hip~ 3;
+#X obj 30 356 *~ 0.5;
+#X obj 30 385 dac~ 1 2;
+#X obj 141 122 cnv 15 320 100 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X obj 150 146 bng 19 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 150 170 1 1000 \, 0 1000 2000;
+#X obj 150 194 vline~;
+#X obj 30 234 *~;
+#X text 30 445 Attack = 1 second;
+#X text 30 465 Hold = 1 second;
+#X text 30 485 Release = 1 second;
+#X text 30 425 RESULT (AHR Envelope);
+#X text 28 81 // Envelopes are a control signal that help us automate
+amplitude \, frequency \, etc.;
+#X text 200 194 <= Ramp Generator;
+#X text 181 123 1) Go to 1 in 1000 ms;
+#X text 181 143 2) Go to 0 in 1000 ms after 1000 ms;
+#X text 80 284 <= CONNECT HERE;
+#X connect 5 0 6 0;
+#X connect 6 0 16 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 10 0 11 1;
+#X connect 13 0 14 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 1;

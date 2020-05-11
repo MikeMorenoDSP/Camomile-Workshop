@@ -1,0 +1,52 @@
+#N canvas 675 125 555 588 12;
+#X obj 11 21 cnv 19 500 50 empty empty POLY 10 24 0 36 -1 -262144 0
+;
+#X obj 11 262 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 10 312 cnv 19 450 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 10 363 cnv 19 450 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 10 414 cnv 19 450 140 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 20 282 5 0 0 1 Frequency-(Hz) - -;
+#X obj 20 424 *~ 0.5;
+#X obj 20 448 clip~ -1 1;
+#X obj 20 472 hip~ 3;
+#X obj 20 496 *~ 0.5;
+#X obj 20 525 dac~ 1 2;
+#X obj 11 122 cnv 19 450 140 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X obj 20 135 notein;
+#X floatatom 20 209 5 0 0 1 MIDI - -;
+#X obj 20 232 mtof;
+#X obj 20 387 *~;
+#X obj 20 325 osc~;
+#X obj 20 169 poly 1 1;
+#X text 20 555 // Clicks and pops?;
+#X text 30 75 // Polyphonic Voice Allocator;
+#X text 30 95 // Use [pack f f f] and [route] for more voices;
+#X text 90 169 <= Number of voices (Voice number / Pitch / Velocity)
+;
+#X obj 231 263 cnv 15 230 100 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X floatatom 240 279 5 0 0 1 Velocity - -;
+#X obj 240 302 > 0;
+#X floatatom 240 326 5 0 0 0 - - -;
+#X connect 5 0 16 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 12 0 17 0;
+#X connect 12 1 17 1;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 15 0 6 0;
+#X connect 16 0 15 0;
+#X connect 17 1 13 0;
+#X connect 17 2 23 0;
+#X connect 23 0 24 0;
+#X connect 24 0 25 0;
+#X connect 25 0 15 1;

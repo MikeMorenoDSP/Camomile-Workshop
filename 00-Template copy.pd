@@ -1,0 +1,83 @@
+#N canvas 624 81 892 794 12;
+#X obj 11 21 cnv 19 500 50 empty empty empty 10 24 0 36 -1 -262144
+0;
+#X obj 521 21 cnv 19 200 150 empty empty empty 5 12 0 14 -261234 -1
+0;
+#N canvas 760 267 392 215 master_output 0;
+#X obj 12 31 inlet~;
+#X obj 12 55 *~ 0.9;
+#X obj 12 79 clip~ -1 1;
+#X obj 12 103 hip~ 3;
+#X obj 12 127 *~ 0.9;
+#X obj 12 161 dac~ 1 2;
+#X text 62 103 <- Remove DC;
+#X text 92 79 <- Restrict signal between -1 and 1;
+#X text 62 127 <- Amplitude -1 dB;
+#X text 62 55 <- Amplitude -1 dB;
+#X text 82 161 <- Audio Output (LR);
+#X text 12 11 (I1) Audio Input (Mono);
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 0 5 1;
+#X restore 28 627 pd master_output;
+#N canvas 0 22 748 391 oscilloscope 0;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-scope 441 float 0;
+#X coords 0 1 440 -1 200 140 1;
+#X restore 30 50 graph;
+#X obj 261 43 inlet~;
+#X obj 360 31 loadbang;
+#X msg 360 55 1;
+#X obj 360 79 metro 50;
+#X obj 261 132 tabwrite~ \$0-scope;
+#X text 261 23 (I1) Input;
+#X obj 261 222 loadbang;
+#X floatatom 261 294 0 0 0 0 - - -;
+#X msg 261 246 bang;
+#X text 301 246 <= get patch ID;
+#X text 301 294 <= patch's ID number;
+#X obj 261 270 float \$0;
+#X msg 261 318 \; \$1-scope ylabel -1 -1 0 1;
+#X text 430 79 <= Plot Input every 50 ms;
+#X text 461 318 <= Add labels to local scope array;
+#X floatatom 165 22 9 0 0 0 - #0-atom -;
+#X obj 360 103 t b b;
+#X obj 392 171 snapshot~;
+#X obj 392 195 send \$0-atom;
+#X connect 1 0 5 0;
+#X connect 1 0 18 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 17 0;
+#X connect 7 0 9 0;
+#X connect 8 0 13 0;
+#X connect 9 0 12 0;
+#X connect 12 0 8 0;
+#X connect 17 0 5 0;
+#X connect 17 1 18 0;
+#X connect 18 0 19 0;
+#X coords 0 -1 1 1 230 190 1 10 10;
+#X restore 248 568 pd oscilloscope;
+#X obj 28 603 *~ 0.5;
+#X obj 28 579 r~ \$0-output;
+#X text 88 603 <= Amplitude -6 dB;
+#X obj 248 543 r~ \$0-output;
+#X obj 28 550 s~ \$0-output;
+#X obj 541 41 cnv 19 200 150 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 561 61 cnv 19 200 150 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 581 81 cnv 19 200 150 empty empty empty 5 12 0 14 -204786 -1
+0;
+#X obj 601 101 cnv 19 200 150 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 621 121 cnv 19 200 150 empty empty empty 5 12 0 14 -203904 -1
+0;
+#X obj 641 141 cnv 19 200 150 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X connect 4 0 2 0;
+#X connect 5 0 4 0;
+#X connect 7 0 3 0;
