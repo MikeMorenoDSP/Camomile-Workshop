@@ -1,4 +1,4 @@
-#N canvas 325 142 883 644 12;
+#N canvas 325 134 883 644 12;
 #X declare -path ./abs;
 #X obj 219 305 notein;
 #X obj 219 334 mono 1 1;
@@ -371,7 +371,6 @@
 #X connect 28 0 2 3;
 #X connect 29 0 14 0;
 #X restore 219 474 pd vca-env;
-#X obj 219 528 dac~ 1 2;
 #X obj 17 28 hsl 128 19 0 127 0 1 portamento empty PORTAMENTO -2 -8
 0 12 -262144 -1 -1 3100 1;
 #X obj 167 28 hsl 128 19 0 127 0 1 s-vibrato r-vibrato VIBRATO -2 -8
@@ -379,7 +378,7 @@
 #X obj 109 305 ctlin 1;
 #X obj 109 329 s r-vibrato;
 #X obj 560 14 hsl 128 19 0 127 0 0 volume-s volume-r VOLUME 10 10 0
-12 -262144 -1 -1 0 1;
+12 -262144 -1 -1 12700 1;
 #X obj 363 408 r volume-s;
 #X obj 363 432 / 127;
 #X msg 363 456 \$1 20;
@@ -387,6 +386,8 @@
 #X obj 219 499 *~;
 #X obj 473 241 declare -path ./abs;
 #X obj 475 272 gui.link 1 volume;
+#X obj 219 523 /~ 2;
+#X obj 219 547 dac~ 1 2;
 #X connect 0 0 1 0;
 #X connect 0 1 1 1;
 #X connect 1 0 2 0;
@@ -394,12 +395,13 @@
 #X connect 2 0 23 0;
 #X connect 23 0 26 0;
 #X connect 25 0 23 1;
-#X connect 26 0 37 0;
-#X connect 30 0 31 0;
+#X connect 26 0 36 0;
+#X connect 29 0 30 0;
+#X connect 32 0 33 0;
 #X connect 33 0 34 0;
 #X connect 34 0 35 0;
-#X connect 35 0 36 0;
-#X connect 36 0 37 1;
-#X connect 37 0 27 0;
-#X connect 37 0 27 1;
+#X connect 35 0 36 1;
+#X connect 36 0 39 0;
+#X connect 39 0 40 0;
+#X connect 39 0 40 1;
 #X coords 0 -1 1 1 700 170 2 5 5;
