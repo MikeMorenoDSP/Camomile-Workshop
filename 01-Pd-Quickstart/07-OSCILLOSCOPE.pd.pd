@@ -1,4 +1,4 @@
-#N canvas 675 125 823 545 12;
+#N canvas 457 125 823 545 12;
 #X obj 11 21 cnv 19 500 50 empty empty OSCILLOSCOPE 10 24 0 36 -1 -262144
 0;
 #X obj 11 222 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
@@ -53,6 +53,7 @@
 #X obj 326 440 bng 19 50 10 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X text 286 373 // Update array1 every 50 ms;
+#X obj 142 78 08-key;
 #X connect 5 0 16 0;
 #X connect 6 0 7 0;
 #X connect 7 0 8 0;
@@ -80,3 +81,5 @@
 #X connect 29 0 30 0;
 #X connect 30 0 33 0;
 #X connect 33 0 32 0;
+#X connect 35 0 17 0;
+#X connect 35 1 17 1;
