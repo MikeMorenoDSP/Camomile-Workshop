@@ -1,0 +1,85 @@
+#N canvas 325 142 883 644 12;
+#X obj 21 51 cnv 19 500 50 empty empty SUBTRACTIVE-SYNTHESIS 10 24
+0 36 -1 -262144 0;
+#X obj 21 292 cnv 19 450 50 empty empty empty 5 12 0 14 -262130 -1
+0;
+#X obj 20 342 cnv 19 450 50 empty empty empty 5 12 0 14 -204800 -1
+0;
+#X obj 20 393 cnv 19 450 50 empty empty empty 5 12 0 14 -261682 -1
+0;
+#X obj 20 444 cnv 19 450 140 empty empty empty 5 12 0 14 -261234 -1
+0;
+#X floatatom 30 297 5 0 0 1 Frequency-(Hz) - -;
+#X obj 30 454 *~ 0.5;
+#X obj 30 478 clip~ -1 1;
+#X obj 30 502 hip~ 3;
+#X obj 30 526 *~ 0.5;
+#X obj 30 555 dac~ 1 2;
+#X obj 21 152 cnv 19 450 140 empty empty empty 5 12 0 14 -232576 -1
+0;
+#X obj 30 165 notein;
+#X floatatom 30 239 5 0 0 1 MIDI - -;
+#X obj 30 262 mtof;
+#X obj 30 417 *~;
+#X obj 30 199 poly 1 1;
+#X obj 321 193 cnv 15 290 250 empty empty empty 20 12 0 14 -204786
+-66577 0;
+#X floatatom 340 222 5 0 0 1 Velocity - -;
+#X obj 340 245 > 0;
+#X obj 340 292 sel 1 0;
+#X msg 340 350 1 10 \, 0.5 1000 10;
+#X obj 340 394 vline~;
+#X obj 340 326 bng 19 250 50 0 empty empty Att/Dec/Sus 22 10 0 12 -262144
+-1 -1;
+#X floatatom 340 269 5 0 0 0 - - -;
+#X obj 490 326 bng 19 250 50 0 empty empty Release 22 10 0 12 -262144
+-1 -1;
+#X msg 490 350 0 200;
+#X obj 440 440 cnv 15 400 150 empty empty empty 20 12 0 14 -203904
+-66577 0;
+#X obj 476 462 tgl 19 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 476 486 metro 50;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array array1 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 100 -1 200 140 1;
+#X restore 636 444 graph;
+#X obj 476 535 tabwrite~ array1;
+#X obj 476 510 bng 19 50 10 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 30 350 phasor~;
+#X text 90 350 <= Sawtooth Oscillator;
+#X text 30 105 // Normalize Oscillator;
+#X text 30 125 // Add Lowpass Resonant Filter;
+#X connect 5 0 33 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;
+#X connect 8 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 12 0 16 0;
+#X connect 12 1 16 1;
+#X connect 13 0 14 0;
+#X connect 14 0 5 0;
+#X connect 15 0 6 0;
+#X connect 15 0 31 0;
+#X connect 16 1 13 0;
+#X connect 16 2 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 24 0;
+#X connect 20 0 23 0;
+#X connect 20 1 25 0;
+#X connect 21 0 22 0;
+#X connect 22 0 15 1;
+#X connect 23 0 21 0;
+#X connect 24 0 20 0;
+#X connect 25 0 26 0;
+#X connect 26 0 22 0;
+#X connect 28 0 29 0;
+#X connect 29 0 32 0;
+#X connect 32 0 31 0;
+#X connect 33 0 15 0;
