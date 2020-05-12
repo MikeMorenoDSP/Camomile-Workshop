@@ -1,0 +1,6 @@
+code Mini;
+type instrument;
+midiin true;
+compatibility 1.0.6;
+iolayout 0 2;
+param -name Volume -min 0 -max 127 -default 127;

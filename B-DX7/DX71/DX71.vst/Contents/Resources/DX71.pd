@@ -1,0 +1,57 @@
+#N canvas 325 142 883 644 12;
+#X obj 130 310 notein;
+#X floatatom 130 378 5 0 0 1 Voice - -;
+#X floatatom 210 378 5 0 0 1 MIDI - -;
+#X floatatom 280 378 5 0 0 1 Velocity - -;
+#X obj 130 421 pack f f f;
+#X obj 30 73 hsl 128 19 0 127 0 1 vca-attack empty VCA-ATTACK 10 10
+0 12 -262144 -1 -1 0 1;
+#X obj 30 102 hsl 128 19 0 127 0 1 vca-decay empty VCA-DECAY 10 10
+0 12 -262144 -1 -1 8900 1;
+#X obj 30 131 hsl 128 19 0 127 0 1 vca-sustain empty VCA-SUSTAIN 10
+10 0 12 -262144 -1 -1 5000 1;
+#X obj 30 160 hsl 128 19 0 127 0 1 vca-release empty VCA-RELEASE 10
+10 0 12 -262144 -1 -1 11600 1;
+#X obj 130 469 /~ 6;
+#X obj 130 493 dac~ 1 2;
+#X obj 169 43 nbx 5 19 -1e+37 1e+37 0 1 ratio-1 empty RATIO-1 0 -8
+0 12 -262144 -1 -1 1 256;
+#X obj 170 73 hsl 128 19 0 127 0 1 attack-1 empty ATTACK-1 10 10 0
+12 -262144 -1 -1 0 1;
+#X obj 170 102 hsl 128 19 0 127 0 1 decay-1 empty DECAY-1 10 10 0 12
+-262144 -1 -1 12700 1;
+#X obj 170 131 hsl 128 19 0 127 0 1 sustain-1 empty SUSTAIN-1 10 10
+0 12 -262144 -1 -1 3000 1;
+#X obj 170 160 hsl 128 19 0 127 0 1 release-1 empty RELEASE-1 10 10
+0 12 -262144 -1 -1 10400 1;
+#X obj 170 190 hsl 128 19 0 127 0 1 env-amount-1 empty ENV-AMOUNT-1
+10 10 0 12 -262144 -1 -1 2600 1;
+#X obj 319 43 nbx 5 19 -1e+37 1e+37 0 1 ratio-2 empty RATIO-2 0 -8
+0 12 -262144 -1 -1 16 256;
+#X obj 320 73 hsl 128 19 0 127 0 1 attack-2 empty ATTACK-2 10 10 0
+12 -262144 -1 -1 0 1;
+#X obj 320 102 hsl 128 19 0 127 0 1 decay-2 empty DECAY-2 10 10 0 12
+-262144 -1 -1 12700 1;
+#X obj 320 131 hsl 128 19 0 127 0 1 sustain-2 empty SUSTAIN-2 10 10
+0 12 -262144 -1 -1 0 1;
+#X obj 320 160 hsl 128 19 0 127 0 1 release-2 empty RELEASE-2 10 10
+0 12 -262144 -1 -1 12700 1;
+#X obj 320 190 hsl 128 19 0 127 0 1 env-amount-2 empty ENV-AMOUNT-2
+10 10 0 12 -262144 -1 -1 700 1;
+#X obj 30 30 hsl 128 19 0 127 0 1 feedback empty FEEDBACK 10 10 0 12
+-262144 -1 -1 12700 1;
+#X obj 130 445 clone -s 1 voice 10;
+#X obj 130 344 poly 10 1;
+#X connect 0 0 25 0;
+#X connect 0 1 25 1;
+#X connect 1 0 4 0;
+#X connect 2 0 4 1;
+#X connect 3 0 4 2;
+#X connect 4 0 24 0;
+#X connect 9 0 10 0;
+#X connect 9 0 10 1;
+#X connect 24 0 9 0;
+#X connect 25 0 1 0;
+#X connect 25 1 2 0;
+#X connect 25 2 3 0;
+#X coords 0 -1 1 1 500 250 2 10 10;

@@ -1,0 +1,5 @@
+code DX71;
+type instrument;
+midiin true;
+compatibility 1.0.6;
+iolayout 0 2;
