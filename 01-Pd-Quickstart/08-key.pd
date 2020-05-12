@@ -901,13 +901,13 @@
 #X restore 12 12 pd 1-0;
 #X restore 12 47 pd keyboard;
 #X msg 159 147 127;
-#X obj 12 133 * 2;
 #X obj 12 157 outlet;
 #X obj 159 171 outlet;
-#X connect 0 0 5 0;
+#X obj 12 133 + 60;
+#X connect 0 0 7 0;
 #X connect 0 1 1 0;
 #X connect 1 0 4 0;
-#X connect 1 1 7 0;
+#X connect 1 1 6 0;
 #X connect 2 0 0 0;
-#X connect 4 0 7 0;
-#X connect 5 0 6 0;
+#X connect 4 0 6 0;
+#X connect 7 0 5 0;
